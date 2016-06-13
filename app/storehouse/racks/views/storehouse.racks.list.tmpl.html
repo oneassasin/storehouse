@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-xs-6 col-md-3" ng-repeat="rack in vm.racks">
+        <a href ui-sref="app.storehouse.shelfes.list({rackId: rack.id})">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>{{::rack.name}}</h4>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a href ui-sref="app.storehouse.racks.new">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Create new rack</h4>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

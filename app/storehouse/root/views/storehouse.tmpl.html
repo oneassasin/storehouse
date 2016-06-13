@@ -1,0 +1,21 @@
+<div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">
+    <ul class="nav menu">
+        <li ui-sref-active="active" ng-repeat="menu in vm.menus">
+            <a href ui-sref="{{::menu.path}}">
+                <!--storehouse.home-->
+                <svg class="{{::menu.class}}">
+                    <!--glyph stroked eye-->
+                    <use xlink:href="{{::menu.svg}}"></use>
+                    <!--#stroked-eye-->
+                </svg>
+                {{::menu.name}}
+                <!--Моніторинг-->
+            </a>
+        </li>
+    </ul>
+</div>
+<!--/.sidebar-->
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <br>
+    <div ui-view></div>
+</div>

@@ -1,0 +1,126 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel ">
+            <div class="panel-heading dark-overlay">
+                <svg class="glyph stroked calendar">
+                    <use xlink:href="#stroked-calendar"></use>
+                </svg>
+                Календар
+            </div>
+            <div class="panel-body">
+                <div id="calendar">
+                </div>
+            </div>
+        </div>
+        <div class="panel ">
+            <div class="panel-heading dark-overlay">
+                <svg class="glyph stroked clipboard-with-paper">
+                    <use xlink:href="#stroked-clipboard-with-paper"></use>
+                </svg>
+                Заплановано:
+            </div>
+            <div class="panel-body">
+                <ul class="todo-list">
+                    <li class="todo-list-item">
+                        <div class="checkbox">
+                            <input type="checkbox" id="checkbox"/>
+                            <label for="checkbox">Планове прибирання</label>
+                        </div>
+                        <div class="pull-right action-buttons">
+                            <a href="#">
+                                <svg class="glyph stroked pencil">
+                                    <use xlink:href="#stroked-pencil"></use>
+                                </svg>
+                            </a>
+                            <a href="#" class="flag">
+                                <svg class="glyph stroked flag">
+                                    <use xlink:href="#stroked-flag"></use>
+                                </svg>
+                            </a>
+                            <a href="#" class="trash">
+                                <svg class="glyph stroked trash">
+                                    <use xlink:href="#stroked-trash"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="todo-list-item">
+                        <div class="checkbox">
+                            <input type="checkbox" id="checkbox"/>
+                            <label for="checkbox">Перевірка стану АТН</label>
+                        </div>
+                        <div class="pull-right action-buttons">
+                            <a href="#">
+                                <svg class="glyph stroked pencil">
+                                    <use xlink:href="#stroked-pencil"></use>
+                                </svg>
+                            </a>
+                            <a href="#" class="flag">
+                                <svg class="glyph stroked flag">
+                                    <use xlink:href="#stroked-flag"></use>
+                                </svg>
+                            </a>
+                            <a href="#" class="trash">
+                                <svg class="glyph stroked trash">
+                                    <use xlink:href="#stroked-trash"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="todo-list-item">
+                        <div class="checkbox">
+                            <input type="checkbox" id="checkbox"/>
+                            <label for="checkbox">Інвентаризація</label>
+                        </div>
+                        <div class="pull-right action-buttons">
+                            <a href="#">
+                                <svg class="glyph stroked pencil">
+                                    <use xlink:href="#stroked-pencil"></use>
+                                </svg>
+                            </a>
+                            <a href="#" class="flag">
+                                <svg class="glyph stroked flag">
+                                    <use xlink:href="#stroked-flag"></use>
+                                </svg>
+                            </a>
+                            <a href="#" class="trash">
+                                <svg class="glyph stroked trash">
+                                    <use xlink:href="#stroked-trash"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-footer">
+                <div class="input-group">
+                    <input id="btn-input" type="text" class="form-control input-lg"
+                           placeholder="Додати нову задачу"/>
+                    <span class="input-group-btn">
+                                <button class="btn btn-warning btn-lg" id="btn-todo">
+                                    Додати
+                                </button>
+                            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#calendar').datepicker({});
+
+    !function ($) {
+        $(document).on("click", "ul.nav li.parent > a > span.icon", function () {
+            $(this).find('em:first').toggleClass("glyphicon-minus");
+        });
+        $(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+    }(window.jQuery);
+
+    $(window).on('resize', function () {
+        if ($(window).width() > 768) $('#sidebar-collapse').collapse('show')
+    })
+    $(window).on('resize', function () {
+        if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
+    })
+
+</script>

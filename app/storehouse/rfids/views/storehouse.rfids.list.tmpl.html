@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-xs-6 col-md-3" ng-repeat="rfid in vm.rfids">
+        <a href>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>{{::rfid.value}}</h4>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a href ui-sref="app.storehouse.sectors.new">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Create new sector</h4>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6 col-md-3" ng-repeat="storehouse in vm.storehouses">
+            <a href ui-sref="app.storehouse.home({storehouseId: storehouse.id})">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4>{{::storehouse.name}}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <a href ui-sref="app.storehouses.new">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4>
+                            Створити новий склад
+                        </h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <!--/.row-->
+</div>
+<!--/.container-->
+</div>

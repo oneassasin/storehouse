@@ -1,0 +1,39 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <span class="navbar-brand"><span>Smart storage </span>System</span>
+            <div class="user-menu dropdown pull-right" uib-dropdown
+                 ng-show="vm.isUserAuth">
+                <a class="dropdown-toggle" href uib-dropdown-toggle>
+                    <svg class="glyph stroked male-user">
+                        <use xlink:href="#stroked-male-user"></use>
+                    </svg>
+                    <span>Адмін</span>
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="item in vm.userMenus">
+                        <a ui-sref="{{::item.path}}">
+                            <svg class="glyph">  <!--stroked male-user-->
+                                <use xlink:href="{{::item.icon}}"></use> <!--stroked-male-user-->
+                            </svg>
+                            {{::item.name}}
+                            <!--Користувач-->
+                        </a>
+                    </li>
+                    <li>
+                        <a href ng-click="vm.logOut()">
+                            <svg class="glyph stroked cancel">
+                                <use xlink:href="#stroked-cancel"></use>
+                            </svg>
+                            Вийти із зміни
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<div ui-view>
+</div>

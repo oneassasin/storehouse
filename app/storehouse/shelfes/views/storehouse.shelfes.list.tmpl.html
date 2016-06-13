@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-xs-6 col-md-3" ng-repeat="shelf in vm.shelfes">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>{{::shelf.number}}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a href ui-sref="app.storehouse.shelfes.new({lastShelfNumber: vm.lastShelfNumber})">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Create new shelf</h4>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-xs-6 col-md-3" ng-repeat="good in vm.goods">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>{{::good.name}}</h4>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <a href ui-sref="app.storehouse.goods.new">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Create new good</h4>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>

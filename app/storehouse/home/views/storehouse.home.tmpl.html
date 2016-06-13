@@ -1,0 +1,140 @@
+<div class="row messages">
+    <div class="col-xs-6 col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-body easypiechart-panel">
+                <h4>Заряд АТН-1</h4>
+                <div class="easypiechart" id="easypiechart-red" data-percent="2"><span
+                        class="percent">2%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-body easypiechart-panel">
+                <h4>Заряд АТН-2</h4>
+                <div class="easypiechart" id="easypiechart-orange" data-percent="65"><span
+                        class="percent">65%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-body easypiechart-panel">
+                <h4>Завантаженність складу</h4>
+                <div class="easypiechart" id="easypiechart-teal" data-percent="56"><span
+                        class="percent">56%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-body easypiechart-panel">
+                <h4>Температура повітря на складі</h4>
+                <div class="easypiechart" id="easypiechart-blue" data-percent="27"><span
+                        class="percent">27°C</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default chat">
+            <div class="panel-heading">
+                <svg class="glyph stroked two-messages">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                         xlink:href="#stroked-two-messages"></use>
+                </svg>
+                Повідомлення
+            </div>
+            <div class="panel-body">
+                <ul>
+                    <li class="right clearfix" ng-repeat="message in vm.messages">
+                            <span class="chat-img pull-right">
+                                <img ng-src="{{::message.login | messageIconPlacehold}}"
+                                     class="img-circle">
+                            </span>
+                        <div class="chat-body clearfix">
+                            <div class="header">
+                                <strong class="pull-left primary-font">
+                                    {{::message.login}}
+                                </strong>
+                                <small class="text-muted">
+                                    {{::message.created_at}}
+                                </small>
+                            </div>
+                            <p>
+                                {{::message.message}}
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-footer">
+                <form name="form" novalidate ng-submit="vm.sendMessage()">
+                    <formly-form model="vm.newMessage" fields="vm.newMessageField"
+                                 form="vm.form">
+                        <button type="submit" class="btn btn-default"
+                                ng-disabled="vm.form.$invalid">
+                            Відправити
+                        </button>
+                    </formly-form>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Останні прийняті товари
+            </div>
+            <div class="panel-body" ng-hide="vm.gridOptions.data.length !== 0">
+                <div class="panel-body">
+                    <h3>
+                        Немає товарів на складі
+                    </h3>
+                </div>
+            </div>
+            <div class="panel-body" ng-show="vm.gridOptions.data.length !== 0">
+                <div class="panel-body">
+                    <div id="grid"
+                         ui-grid="vm.gridOptions"
+                         ui-grid-pagination
+                         ui-grid-pinning
+                         ui-grid-resize-columns
+                         ui-grid-selection
+                         ui-grid-move-columns>
+                    </div>
+                </div>
+                <div ng-hide="vm.gridAPI.pagination.getTotalPages() === 1">
+                    <div class="col-md-6">
+                        Сторінка: {{vm.gridAPI.pagination.getPage()}} з
+                        {{vm.gridAPI.pagination.getTotalPages()}}
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button"
+                                class="btn btn-default"
+                                ng-class="{
+                                    disabled: vm.gridAPI.pagination.getPage() === 1
+                                }"
+                                ng-click="vm.gridAPI.pagination.previousPage()">
+                            « Назад
+                        </button>
+                        <button type="button"
+                                class="btn btn-default"
+                                ng-class="{
+                                    disabled: vm.gridApi.pagination.getPage() ===
+                                              vm.gridApi.pagination.getTotalPages()
+                                }"
+                                ng-click="vm.gridAPI.pagination.nextPage()">
+                            Далі »
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
